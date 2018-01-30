@@ -24,9 +24,6 @@ CKEDITOR.editorConfig = function(config) {
         { name: 'others' }
     ];
 
-
-
-
     config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
 
     // The default plugins included in the basic setup define some buttons that
@@ -42,9 +39,9 @@ CKEDITOR.editorConfig = function(config) {
         javascript: 'JavaScript',
         php: 'PHP',
         css: "css",
-        apache: 'Apache',
+        // apache: 'Apache',
         bash: 'Bash',
-        coffeescript: 'CoffeeScript',
+        // coffeescript: 'CoffeeScript',
         css: 'CSS',
         html: 'HTML',
         json: 'JSON',
@@ -56,9 +53,11 @@ CKEDITOR.editorConfig = function(config) {
     config.codeSnippet_theme = 'pojoaque';
     config.timestamp = 'ABCE';
     config.disallowedContent = 'strong em i cite';
-    config.allowedContent = 'iframe[width,height,src,frameborder,allow,allowfullscreen];script[type,src];table;td;tr;del[datetime, title];span(!math-tex);a[!href];h1; h2; h3; h4; h5; p(content); br;code {*};pre;section; div[data-tiny](ieconomics_share,path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content);label[for];ul;ol;li;img[!src]{width,height,alt};audio[!src,controls];video[controls,onclick,width,id];source[!src,type];mark;details;summary;em';
+    embeded='iframe[width,height,src,frameborder,allow,allowfullscreen,scrolling];'
+    config.allowedContent = embeded 	+ 'script[type,src];table;td;tr;del[datetime, title];span(!math-tex);a[!href];h1; h2; h3; h4; h5; p(content); br;code {*};pre;section; div[data-tiny](ieconomics_share,path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content);label[for];ul;ol;li;img[!src]{width,height,alt};audio[!src,controls];video[controls,onclick,width,id];source[!src,type];mark;details;summary;em';
+    // config.allowedContent = true
+  
 
-    // classes
     // chinese : chinese text classes
     // savetofile : content to save where path classes dictate
     // path  : tell where to save content only pure text from the class "savetofile"
