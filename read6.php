@@ -43,7 +43,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
 include ('inc/function_read.php');
 $path="/data//";
-$resourcesfile="/data/rw3/i487.com/resources/files2.json";
+$resourcesfile="/data/src/personal/ebrain/resources/files2.json";
 generate_content($path,$resourcesfile);
 
 ?>

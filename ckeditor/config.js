@@ -58,7 +58,7 @@ CKEDITOR.editorConfig = function( config ) {
 	config.timestamp='ABCE';
 
 	config.disallowedContent = 'strong em i cite';
-	config.allowedContent = 'del[datetime, title];span(!math-tex);a[!href];h1; h2; h3; h4; h5; p(content); br;code {*};pre;section; div(path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content);label[for];ul;ol;li;img[!src]{width,height,alt};audio[!src,controls];video[controls,onclick,width,id];source[!src,type];mark;details;summary;em';
+	config.allowedContent = 'table;td;tr;del[datetime, title];span(!math-tex);a[!href];h1; h2; h3; h4; h5; p(content); br;code {*};pre;section; div(path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content);label[for];ul;ol;li;img[!src]{width,height,alt};audio[!src,controls];video[controls,onclick,width,id];source[!src,type];mark;details;summary;em';
 
 // classes
 // chinese : chinese text classes
