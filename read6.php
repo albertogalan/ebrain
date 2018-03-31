@@ -41,6 +41,22 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
+session_start([
+    'cookie_lifetime' => 10,
+]);
+
+echo $_SESSION["login2"]; 
+if ($_SESSION["login2"]){
+	$editable="true";
+	// echo " login correctly";
+}
+else
+{
+	$editable="false";
+	echo "Not editable";
+}
+
+
 include ('inc/function_read.php');
 $path="/data//";
 $resourcesfile="/data/src/personal/ebrain/resources/files2.json";
@@ -54,15 +70,25 @@ generate_content($path,$resourcesfile);
 	<div id="hash"></div><br/><br/>
 	<div id="saving"></div><br/><br/>
 	<br/><br/>
-  <div id="introduction" contenteditable="true" class="first_editor"  >
+  <div id="introduction" contenteditable=<?php echo $editable  ?> class="first_editor"  >
 <?php
+if ($_SESSION["login2"]){
+
+
+
 if (isset($_GET['url'])) {
 	// echo "hola";
 	// file_get_contents('http://www.google.com.com/');
 
 	// $homepage = file_get_contents('http://www.example.com/');
 // echo $homepage;
-readfile("/data/rw1/m1/".$_GET['url'])  ;
+	readfile("/data/rw1/m1/".$_GET['url'])  ;
+}
+
+}
+else
+{
+	readfile("/data/rw1/m1/welcome.html")  ;
 }
 
 
