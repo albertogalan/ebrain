@@ -153,7 +153,7 @@ editor.on('key', function (evt)
 
 var charCode = evt.data.keyCode; // at the moment this is wrong, keyCode needs to be properly converted to charCode
 // var clipboardData = evt.data.dataValue;
-// console.log(charCode);
+console.log(charCode);
  var tag="h1";
   //  console.log(selectedText);
  switch (charCode) {
@@ -178,11 +178,15 @@ var charCode = evt.data.keyCode; // at the moment this is wrong, keyCode needs t
 
   editor.insertHtml( "<div class='savetofile'>put text</div>");
    break;
-
+   
+  case 5570638:// Ctrl Alt N
+  // tag="<b></b>";
+    tag="<em></em>"; //emphasis
+  break;
 
 
   case 5570637:// Ctrl Alt M
-  tag="<mark></mark>";
+    tag="<mark></mark>";
   break;
   case 5570628:// Ctrl Alt D
    var d = new Date();
@@ -277,7 +281,7 @@ case 3342422: // Ctrol shift V
  }
 
 
- var keypress =[1114161,1114162,1114163,1114164,1114166,1114169,5570637,5570628,5570633];
+ var keypress =[1114161,1114162,1114163,1114164,1114166,1114169,5570637,5570628,5570633,5570638];
  // console.log(keypress.indexOf(charCode));
  if (keypress.indexOf(charCode)>-1 )  { // retag the select area
    var sel = editor.getSelection().getSelectedText();
