@@ -1,4 +1,4 @@
-
+	
 /*http://sixrevisions.com/css/css-typography-03/*/
 /*https://www.typetester.org/*/
 /*http://prismjs.com/download.html*/
@@ -165,12 +165,13 @@ section img {
 }
 
 
-.first_editor section p,.first_editor section ul li {
+/*.first_editor section p,.first_editor section ul li {
 	font-family: abel-regular;
-	font-size: 1.5vh;
+	/*font-size: 1.5vh;*/
+	/*font-size: 1.3em;*/
 
 
-}
+/*}*/
 
 
 
@@ -274,7 +275,8 @@ text-color:#444;
  /*resize: horizontal;*/
  overflow: auto;
  word-wrap:break-word;  /*allow break long words*/
-max-width: 1000px;
+ max-width: 1700px;  /* editor max width */
+ width: 950px;
 
 }
 
@@ -290,7 +292,6 @@ section br{
 
 /*necessary to create a new line in the editor and clear left and right float*/
 br { clear: both; }
-
 
 
 h1 , h2, h3, h4 {
@@ -349,19 +350,45 @@ clear: left; /* force to to next line */
 
 }
 
+ .first_editor li,  .first_editor ul {
+
+font-family: ukaicn ;
+font-size: 0.98em;
+line-height: 1.3em;
 
 
-.first_editor .savetofile, .first_editor p , .first_editor li {
+ }
 
-font-size: 2vh;
-line-height: 2.4vh;
+
+
+.first_editor .savetofile, .first_editor p  {
+/*.first_editor .savetofile, .first_editor p , .first_editor li {*/
+/*****  this is for change the font size of the normal text **/
+/*font-size: 1.9vh;*/
+/*font-family: ukaicn ;*/
+font-family: wenquanyi ;
+font-size: 0.8em;
+/*line-height: 2.4vh;*/
+line-height: 1.35em;
 margin:0;
 padding: 0;
 word-wrap:break-word;  /*allow break long words*/
 }
 
 
+b {
+color: #841D8D;
+/*font-weight: bold;*/
 
+	
+}
+
+p em {
+color: #1082E3;
+/*font-weight: bold;*/
+
+	
+}
 
 
 .first_editor .chinese p, .first_editor .chinese {
