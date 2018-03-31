@@ -59,7 +59,7 @@ else
 
 include ('inc/function_read.php');
 $path="/data//";
-$resourcesfile="/data/src/personal/ebrain/resources/files2.json";
+$resourcesfile="resources/files2.json";
 generate_content($path,$resourcesfile);
 
 ?>
