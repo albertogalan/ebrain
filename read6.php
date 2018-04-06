@@ -88,7 +88,10 @@ if (isset($_GET['url'])) {
 }
 else
 {
-	readfile("/data/rw1/m1/welcome.html")  ;
+
+	readfile("/data/rw1/m1/".$_GET['url'])  ;
+	
+	// readfile("/data/rw1/m1/welcome.html")  ;
 }
 
 

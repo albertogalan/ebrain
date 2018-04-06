@@ -23,7 +23,7 @@ $pass=$_POST['pass'];
 
 if ($user=='agalan' && $pass=='1234'){
 session_start([
-    'cookie_lifetime' => 7200,
+    'cookie_lifetime' => 14400,
 ]);
 $_SESSION["login2"]=true;
 echo "User login correctly";
