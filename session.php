@@ -26,17 +26,25 @@ session_start([
     'cookie_lifetime' => 14400,
 ]);
 $_SESSION["login2"]=true;
+$_SESSION["loginedit"]=true;
 echo "User login correctly";
 header("Location: read6.php?url=.all-all.html");
 
 }
+else if ($user=='agalanread' && $pass=='1234')
+{
+$_SESSION["login2"]=true;
+$_SESSION["loginedit"]=false;
+echo "User login correctly";
+header("Location: read6.php?url=170.html");
+}
 else
 {
-
 unset($_SESSION["login2"]);
+unset($_SESSION["login2read"]);
+$_SESSION["loginedit"]=false;
 echo "Wrong user or password";
-
-}
+	}
 
 ?>
 

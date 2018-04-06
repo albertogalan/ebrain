@@ -45,15 +45,30 @@ session_start([
     'cookie_lifetime' => 10,
 ]);
 
-echo $_SESSION["login2"]; 
-if ($_SESSION["login2"]){
-	$editable="true";
+// echo $_SESSION["login2"]; 
+
+
+if ( ($_SESSION["login2"])){
+
+	echo "Login correcto<p>";
 	// echo " login correctly";
 }
 else
 {
+	echo "Need to <a href='session.php'>login</a>";
+}
+
+
+if ($_SESSION["loginedit"]){
+
+	$editable="true";
+	echo "edit mode";
+}
+else
+{
 	$editable="false";
-	echo "Not editable";
+	echo "read mode<p>";
+
 }
 
 
@@ -64,7 +79,7 @@ generate_content($path,$resourcesfile);
 
 ?>
 
-
+		
 <body >
 	<input id="tittle" value="introduction"></input> 	<input id="rename" value="introduction"></input><div id="hash"></div><button id="MW" name="button" onclick="version()" >MW</button>
 	<div id="hash"></div><br/><br/>
@@ -89,9 +104,9 @@ if (isset($_GET['url'])) {
 else
 {
 
-	readfile("/data/rw1/m1/".$_GET['url'])  ;
+	// readfile("/data/rw1/m1/".$_GET['url'])  ;
 	
-	// readfile("/data/rw1/m1/welcome.html")  ;
+	readfile("/data/rw1/m1/welcome.html")  ;
 }
 
 
