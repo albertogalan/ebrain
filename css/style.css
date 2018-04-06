@@ -285,11 +285,14 @@ text-color:#444;
 
 .jieba {
 
-
 position: relative;
 float:left;
 align-items: left;
 color : black; 
+/*font-family: ukaicn ;*/
+font-family: wenquanyi ;
+font-size: 1.4em;
+
 }
 
 .jieba.active {
@@ -298,7 +301,6 @@ color : black;
 
 .jieba:hover {
 	color:blue;
-	font-weight: bold;
 }
 
 /*#ignore br type moz elements */
