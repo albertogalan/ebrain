@@ -52,18 +52,47 @@ cd $aa
 
 }
 
+
+function i487_sync 
+{
+
+rsync -av --rsync-path="sudo rsync" --chown=www-data:www-data /data/rw1/img  i487.com:/data/rw1/
+rsync -av --rsync-path="sudo rsync" --chown=www-data:www-data /data/rw1/m1  i487.com:/data/rw1/
+
+}
+
+
 function i487_backup
 {
+
+# backup every quarter hour
+# remove all quarterly from previous day
+actualdate=$(date  "+%Y%m$d")
+if [ -f $HOSTBACKUP/daily-text-$actualdate.tar.gz ]; then
+	tar -czf $HOSTBACKUP/daily-text-$actualdate.tar.gz $HOSTPATH
+	i487_sync 
+	sudo btrbk -q -c /data/src/personal/ebrain/btfbk.conf run
+	rm $HOSTBACKUP/quarterly*
+fi
 actualdate=$(date  "+%Y%m$d%H%M")
-tar -czf $HOSTBACKUP/text-$actualdate.tar.gz $HOSTPATH
-# tar -czf $HOSTBACKUP/text-$actualdate.tar.gz $HOSTPATHIMAGES
+tar -czf $HOSTBACKUP/quarterly-text-$actualdate.tar.gz $HOSTPATH
 }
 
 function i487_backup_images
 {
 	echo "doing images backup"
+
+
+}
+
+function i487_remove_older
+{
+# remove files older than 90 days
+find /data/rw1/backup/* -ctime +90 -delete;
+
 }
 
 i487_backup
 i487_backup_images
 i487_reindex
+i487_remove_older
