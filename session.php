@@ -23,7 +23,7 @@ $pass=$_POST['pass'];
 
 if ($user=='agalan' && $pass=='1234'){
 session_start([
-    'cookie_lifetime' => 14400,
+    'cookie_lifetime' => 43200,
 ]);
 $_SESSION["login2"]=true;
 $_SESSION["loginedit"]=true;
@@ -36,7 +36,7 @@ else if ($user=='agalanread' && $pass=='1234')
 $_SESSION["login2"]=true;
 $_SESSION["loginedit"]=false;
 echo "User login correctly";
-header("Location: read6.php?url=170.html");
+header("Location: read6.php?url=chinese-.html");
 }
 else
 {
