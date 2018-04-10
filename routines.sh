@@ -19,7 +19,6 @@ m1-
 mind-
 todo-
 ai-
-events-
 grandtop-
 id-
 learn-
@@ -33,15 +32,16 @@ stt-
 for j in $a
 do
 sudo rm $HOSTPATH/$j.html
-for i in $(ls $HOSTPATH | grep -v 'stt\|coursera' | egrep ^$j ) ; do echo "<a href=$baseurl$i>$i</a></br>"  >> $HOSTPATH/$j.html ; done
+for i in $(ls $HOSTPATH | grep -v 'stt\|coursera' | egrep ^$j ) ; do echo "<a href=$baseurl$i>$i</a></br>"  | sudo tee -a $HOSTPATH/$j.html > /dev/null ; done
 done
 
 sudo rm $HOSTPATH/.all-all.html
-echo " This file cannot modify is automatically generated </br>" >> $HOSTPATH/.all-all.html
+echo " This file cannot modify is automatically generated </br>" | sudo tee -a $HOSTPATH/.all-all.html  > /dev/null
 for i in $a;do 
-	echo "<a href=$baseurl$i.html>$i.html</a></br>" >> $HOSTPATH/.all-all.html
+	echo  "<a href=$baseurl$i.html>$i.html</a></br>"  |  sudo tee -a $HOSTPATH/.all-all.html  > /dev/null
 done
-chmod 440 $HOSTPATH/.all-all.html
+sudo chown agalan:www-data $HOSTPATH/.all-all.html
+sudo chmod 440 $HOSTPATH/.all-all.html
 echo "look at raiz http://i487.lxc/$baseurl.all-all.html"
 
 # remove absolute path
@@ -68,10 +68,12 @@ function i487_backup
 # backup every quarter hour
 # remove all quarterly from previous day
 actualdate=$(date  "+%Y%m$d")
-if [ -f $HOSTBACKUP/daily-text-$actualdate.tar.gz ]; then
+if [ ! -f $HOSTBACKUP/daily-text-$actualdate.tar.gz ]; then
 	tar -czf $HOSTBACKUP/daily-text-$actualdate.tar.gz $HOSTPATH
 	i487_sync 
-	sudo btrbk -q -c /data/src/personal/ebrain/btfbk.conf run
+
+	# sudo btrbk -q -c /data/src/personal/ebrain/btfbk.conf run
+
 	rm $HOSTBACKUP/quarterly*
 fi
 actualdate=$(date  "+%Y%m$d%H%M")
@@ -92,7 +94,48 @@ find /data/rw1/backup/* -ctime +90 -delete;
 
 }
 
-i487_backup
-i487_backup_images
+
+images_resize ()  #by size
+{
+
+PATHDIR="$1"
+FILESIZE="$2"
+
+find "$PATHDIR" -name "*jpg" -o -name "*png" | while read file;   # its better to read file or folders with spaces
+do
+#echo "$LINE"
+  FILESIZE=$(stat -c%s "$file")
+#  echo $FILESIZE
+  if [ "$FILESIZE" -gt $2 ]
+  then
+  echo "$file is too large = $FILESIZE bytes."
+  sudo mogrify -resize 70%  $file
+  fi
+done
+
+}
+
+video_resize ()
+
+{
+
+echo "resize videos"
+
+}
+
+
+function i487_resize_files
+{
+## resize images in order to preserve space
+
+images_resize /data/rw1/img 360000
+
+}
+
+
 i487_reindex
 i487_remove_older
+i487_resize_files
+i487_backup
+
+
