@@ -283,17 +283,20 @@ text-color:#444;
 
 }
 
-.jieba {
+ .jieba {
 
 position: relative;
 float:left;
 align-items: left;
 color : black; 
 /*font-family: ukaicn ;*/
-font-family: wenquanyi ;
+/*font-family: wenquanyi ;*/
 font-size: 1.4em;
+line-height: 1.6em;
+
 
 }
+
 
 .jieba.active {
 	color:blue;
@@ -302,6 +305,14 @@ font-size: 1.4em;
 .jieba:hover {
 	color:blue;
 }
+
+.first_editor p{
+
+/*position:relative;*/
+float:none;
+
+}
+
 
 /*#ignore br type moz elements */
 section br{
@@ -387,11 +398,13 @@ line-height: 1.3em;
 font-family: wenquanyi ;
 font-size: 1.2em;
 /*line-height: 2.4vh;*/
-line-height: 1.4em;
+line-height: 1.2em;
 margin:0;
 padding: 0;
 word-wrap:break-word;  /*allow break long words*/
 }
+
+
 
 
 b {
