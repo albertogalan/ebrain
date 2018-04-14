@@ -382,7 +382,7 @@ clear: left; /* force to to next line */
  .first_editor li,  .first_editor ul {
 
 font-family: ukaicn ;
-font-size: 0.98em;
+font-size: 1.0em;
 line-height: 1.3em;
 
 
@@ -396,7 +396,7 @@ line-height: 1.3em;
 /*font-size: 1.9vh;*/
 /*font-family: ukaicn ;*/
 font-family: wenquanyi ;
-font-size: 1.2em;
+font-size: 1em;
 /*line-height: 2.4vh;*/
 line-height: 1.2em;
 margin:0;
