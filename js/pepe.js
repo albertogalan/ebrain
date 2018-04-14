@@ -215,7 +215,7 @@ $(document).ready(function() {
                 // break;
 
 
-            case 3342404: // Ctrl D  Insert detail/Summary html
+            case 3342404: // Ctrl Shift D  Insert detail/Summary html
                 var sel = editor.getSelection().getSelectedText();
                 if (sel.length > 0) {
                     var details = new CKEDITOR.dom.element('details');
