@@ -105,8 +105,8 @@ function save_content ($file,$contenido)
 {
   $data=$contenido;
   echo "saving file content and modfifing with chown";
-  chown($file, "www-data");  //assign new username
-  chgrp($file, "www-data");  //assign new usergroup
+  // chown($file, "www-data");  //assign new username
+  // chgrp($file, "www-data");  //assign new usergroup
 
  if (file_exists($file)) {
         $fh = fopen($file, 'w') or die("Can't create file");
@@ -120,7 +120,7 @@ function save_content ($file,$contenido)
       chown($file, "www-data");  //assign new username
     }
    fclose($fh);
-   chmod($file, 0777);
+   // chmod($file, 0777);
    echo "Saved - Grabado2";  }
 
 

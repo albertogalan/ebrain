@@ -23,6 +23,7 @@ grandtop-
 id-
 learn-
 me-
+events-
 bu-
 osint-
 ocr-
@@ -49,19 +50,40 @@ sudo chmod 440 $HOSTPATH/.all-all.html
 echo "look at raiz http://i487.lxc/$baseurl.all-all.html"
 
 # remove absolute path
-aa=$(pwd)
-cd $HOSTPATH
-# for f in "$(ls *.html)"; do sed  -e "s/http:\/\/i487.lxc\///g" $f > tmp.html ; cp tmp.html $f ; done
-cd $aa
+IFSback=$IFS
+IFS=$'\n'
+
+for f in $(ls $HOSTPATH/*.html); do 
+countline=$(grep  http:\/\/i487.lxc $f | wc -l)
+
+if [ $countline -gt 0 ]; then 
+	echo "removing $countline   i487.lxc routes"
+    sed  -e 's/http:\/\/i487.lxc\///g' $f > $HOSTPATH/tmp.html
+	cp $HOSTPATH/tmp.html $f
+	fi
+done
+IFS=$IFSback
+
+
+
+#avoid files with spaces\
+# date >> /var/log/ocr-list.log
+# for i in $(ls /data/miscellaous/mobilesync/CamScanner/*.pdf | grep -v "New Doc\|noocr\| "); 
+# do  
+# ocr.sh $i 0 zh
+
+# done
+
 
 }
 
 
 function i487_sync 
 {
-
+echo "syncronizing with server"
 rsync -av --rsync-path="sudo rsync" --chown=www-data:www-data /data/rw1/img  i487.com:/data/rw1/
 rsync -av --rsync-path="sudo rsync" --chown=www-data:www-data /data/rw1/m1  i487.com:/data/rw1/
+rsync -av --rsync-path="sudo rsync" --chown=www-data:www-data /data/rw1/pdf  i487.com:/data/rw1/
 
 }
 
@@ -103,6 +125,7 @@ find /data/rw1/backup/* -ctime +90 -delete;
 images_resize ()  #by size
 {
 
+echo "image resizing"
 PATHDIR="$1"
 FILESIZE="$2"
 
@@ -114,7 +137,7 @@ do
   if [ "$FILESIZE" -gt $2 ]
   then
   echo "$file is too large = $FILESIZE bytes."
-  sudo mogrify -resize 70%  $file
+  sudo mogrify -resize 70%	  $file
   fi
 done
 
@@ -124,7 +147,7 @@ video_resize ()
 
 {
 
-echo "resize videos"
+echo "video resizing"
 
 }
 
@@ -134,6 +157,7 @@ function i487_resize_files
 ## resize images in order to preserve space
 
 images_resize /data/rw1/img 360000
+video_resize
 
 }
 
