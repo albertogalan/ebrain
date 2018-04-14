@@ -32,7 +32,11 @@ stt-
 for j in $a
 do
 sudo rm $HOSTPATH/$j.html
-for i in $(ls $HOSTPATH | grep -v 'stt\|coursera' | egrep ^$j ) ; do echo "<a href=$baseurl$i>$i</a></br>"  | sudo tee -a $HOSTPATH/$j.html > /dev/null ; done
+for i in $(ls $HOSTPATH | grep -v 'stt\|coursera' | egrep ^$j ) ; do 
+echo "<a href=$baseurl$i>$i</a></br>"  | sudo tee -a $HOSTPATH/$j.html > /dev/null 
+sudo chown agalan:www-data $HOSTPATH/$j.html
+sudo chmod 440 $HOSTPATH/$j.html
+done
 done
 
 sudo rm $HOSTPATH/.all-all.html
@@ -67,9 +71,10 @@ function i487_backup
 
 # backup every quarter hour
 # remove all quarterly from previous day
-actualdate=$(date  "+%Y%m$d")
+actualdate=$(date  "+%Y%m%d")
 if [ ! -f $HOSTBACKUP/daily-text-$actualdate.tar.gz ]; then
 	tar -czf $HOSTBACKUP/daily-text-$actualdate.tar.gz $HOSTPATH
+	chmod 444 $HOSTBACKUP/daily-text-$actualdate.tar.gz
 	i487_sync 
 
 	# sudo btrbk -q -c /data/src/personal/ebrain/btfbk.conf run

@@ -13,6 +13,7 @@
   <script src="/js/jquery-3.1.0.min.js"></script>
 		<script src="/js/pepe_functions.js"></script>
 	<script src="/js/pepe.js"></script>
+	<link href="http://vjs.zencdn.net/6.6.3/video-js.css" rel="stylesheet">
 	<!-- https://highlightjs.org -->
 	<script src="/js/highlight.pack.js"></script>
  <!-- Autocomplete script -->
@@ -89,25 +90,15 @@ generate_content($path,$resourcesfile);
 <?php
 if ($_SESSION["login2"]){
 
+		if (isset($_GET['url'])) {
+			readfile("/data/rw1/m1/".$_GET['url'])  ;
+		}
 
-
-if (isset($_GET['url'])) {
-	// echo "hola";
-	// file_get_contents('http://www.google.com.com/');
-
-	// $homepage = file_get_contents('http://www.example.com/');
-// echo $homepage;
-	readfile("/data/rw1/m1/".$_GET['url'])  ;
-}
-
-}
+		}
 else
-{
-
-	// readfile("/data/rw1/m1/".$_GET['url'])  ;
-	
-	readfile("/data/rw1/m1/welcome.html")  ;
-}
+		{
+			readfile("/data/rw1/m1/welcome.html")  ;
+		}
 
 
  ?>
@@ -117,6 +108,7 @@ else
 </div>
 <div id="hidden"></div>
 
+  <script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
 </body>
 <script>
 
