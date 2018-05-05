@@ -1,0 +1,14 @@
+[
+{
+    "id": "adfsf.jpeg",
+    "lon": "32.33",
+    "lat": "141.34",
+    "date": "16-04-2018",
+    "file":["aa.html","bb.html"],
+    "productlabels":["door","animal"],
+    "existface":"yes",
+    "faces":["12343242","123423"],
+    "existbarcode":"yes",
+    "barcode":["1423423","2423sdf"]
+
+}]

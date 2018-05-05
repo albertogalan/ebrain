@@ -1,0 +1,20 @@
+{
+  "name": "ebrain",
+  "version": "1.0.0",
+  "description": "ebrain backend",
+  "main": "ebrain.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ebrain"
+  ],
+  "author": "A Galan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "fs-extra": "^6.0.0",
+    "sys": "0.0.1",
+    "util": "^0.10.3"
+  }
+}
