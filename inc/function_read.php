@@ -75,7 +75,8 @@ $value = is_array($row)? array_values($row)[0]: array();
 function version_content($path,$file,$fileout)
 {
   echo "version content";
-  if (copy ( "$path/$fileout", genera_newfile("$path/$fileout","/vers/") ))
+  if (copy ( "$path/$fileout", genera_newfile("$path/$fileout","$path/vers/") ))
+  // if (copy ( "$path/$fileout", "$path/vers/$file" ))
     {
     echo "copy success!";
     }
@@ -122,9 +123,6 @@ function save_content ($file,$contenido)
    fclose($fh);
    // chmod($file, 0777);
    echo "Saved - Grabado2";  }
-
-
-
 
 
 

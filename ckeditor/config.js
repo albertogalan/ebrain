@@ -30,6 +30,7 @@ CKEDITOR.editorConfig = function(config) {
     // are not needed in a basic editor. They are removed here.
     config.removeButtons = 'Copy,Paste,Undo,Redo,Anchor,Underline,Strike,Subscript,Superscript';
     config.extraPlugins = 'inlinesave,sourcearea,sourcedialog,video,inserthtml4x,image,format,wysiwygarea,balloonpanel,a11ychecker,html5audio,table,lineutils,widget,codesnippet,find,templates,mathjax,clipboard';
+    // config.uploadUrl = '/uploader/upload.php';
     // removed plugins easykeymap,
     // Dialog windows are also simplified.
     config.removeDialogTabs = 'link:advanced';
@@ -53,10 +54,16 @@ CKEDITOR.editorConfig = function(config) {
     config.codeSnippet_theme = 'pojoaque';
     config.timestamp = 'ABCE';
     config.disallowedContent = 'strong em i cite';
-    embeded='iframe[width,height,src,frameborder,allow,allowfullscreen,scrolling];'
-    config.allowedContent = embeded     + 'script[type,src];table;td;tr;del[datetime, title];span(!math-tex);a[!href];h1; h2; h3; h4; h5; p(content); br;code {*};pre;section; div[data-tiny](ieconomics_share,path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content);label[for];ul;ol;li;img[!src]{width,height,alt};audio[!src,controls];video[controls,onclick,width,id];source[!src,type];mark;details;summary;em';
-    config.allowedContent = embeded 	+ 'script[type,src];table;td;tr;del[datetime, title];span(!math-tex);a[!href];h1; h2; h3; h4; h5; b; p(content); br;code {*};pre;section; div[data-tiny](jieba,ieconomics_share,path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content);label[for];ul;ol;li;img[!src]{width,height,alt};audio[!src,controls];video[*]{*};source[!src,type];mark;details;summary;em';
-    // config.allowedContent = true
+    embeded = 'iframe[width,height,src,frameborder,allow,allowfullscreen,scrolling];'
+    // config.allowedContent = embeded     + 'script[type,src];table;td;tr;del[datetime, title];span(!math-tex);a[!href];h1; h2; h3; h4; h5; p(content); br;code {*};pre;section; div[data-tiny](ieconomics_share,path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content);label[for];ul;ol;li;img[!src]{width,height,alt};audio[!src,controls];video[controls,onclick,width,id];source[!src,type];mark;details;summary;em';
+    // https://docs.ckeditor.com/ckeditor4/latest/guide/dev_allowed_content_rules.html
+    config.allowedContent = embeded + 'script[type,src];table; \
+    td[rowspan,colspan,width];tr;th; \
+    del[datetime, title];span[*](math-tex,original,translate,cost,information);a[!href];h1; h2; h3; h4; h5; \
+    b; \
+    a[id]; br;code {*};pre;section; \
+    p div (original,translate,videolink,jieba,ieconomics_share,path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content,middle);\
+    label[for];ul;ol;li;img[!src]{width,height,alt};audio[!src,controls];video[*]{*};source[*]{*};mark;details;summary;em';
 
     // chinese : chinese text classes
     // savetofile : content to save where path classes dictate
@@ -75,8 +82,10 @@ CKEDITOR.editorConfig = function(config) {
             console.log('saved', editor, data);
             window.alert("Sucess!");
         },
-        onFailure: function(editor, status, request) { window.alert("Failed!");
-            console.log('save failed', editor, status, request); },
+        onFailure: function(editor, status, request) {
+            window.alert("Failed!");
+            console.log('save failed', editor, status, request);
+        },
         useJSON: false,
         useColorIcon: false
     };
@@ -111,7 +120,7 @@ CKEDITOR.editorConfig = function(config) {
 
     //
     // config.easykeymaps = {
-    // 	// 4456530 : 'String.fromCharCode(174)',   //ALT + R
+    //  // 4456530 : 'String.fromCharCode(174)',   //ALT + R
     //
     //          4456530 : '<h1>Title 1</h1>',   //ALT + R
     //
