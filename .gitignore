@@ -11,3 +11,7 @@ toclasify.txt
 old/*
 */node_modules/*
 js/bundle*
+src/server/node_modules/*
+src/server/data/*pdf
+src/server/data/*png
+src/server/data/*jpg

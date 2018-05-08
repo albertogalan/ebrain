@@ -11,16 +11,8 @@
 	echo "$tittle"; ?></title>
   <script src="/ckeditor/ckeditor.js"></script>
   <script src="/js/jquery-3.1.0.min.js"></script>
-		<script src="/js/pepe_functions.js"></script>
+		<script src="/js/dist/bundle.js"></script>
 		<script src="/js/money.min.js"></script>
-	<script src="/js/pepe.js"></script>
-	<!-- http://api.map.baidu.com/geocoder/v2/?address=百度大厦&output=json&ak=yourak&sn=7de5a22212ffaa9e326444c75a58f9a0  -->
-	<script type="text/javascript" src="http://api.map.baidu.com/geocoder/v2/?address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&output=json&ak=tjMRoKIF4TtmCnlzkPKaiqfN0yzR57G5&sn=efcc60e2f0d0e5174e5cbfad01748577"></script>
-	
-<!-- replace maybe by JwPLAYER -->
-	<link href="http://vjs.zencdn.net/6.6.3/video-js.css" rel="stylesheet">
-	<!-- https://highlightjs.org -->
-	<script src="/js/highlight.pack.js"></script>
  <!-- Autocomplete script -->
 	<script src="/js/jquery-1.11.2.min.js"></script>
 	<script src="/js/jquery.easy-autocomplete.min.js" type="text/javascript" ></script>

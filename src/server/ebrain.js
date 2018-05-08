@@ -16,6 +16,8 @@ app.get('/ebrain', function(req, res) {
 
 
 
+
+
     hashFile(data).then(function(resp) {
 
         console.log(PATHFILES + data.url + data.hash)

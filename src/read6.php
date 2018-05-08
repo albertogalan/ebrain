@@ -13,7 +13,7 @@
   <script src="/js/jquery-3.1.0.min.js"></script>
 		<!-- <script src="/js/pepe_functions.js"></script> -->
 		<!-- <script src="/js/money.min.js"></script> -->
-	<script src="/js/bundle.js"></script>
+	<script src="/js/dist/bundle.js"></script>
 
 	
 <!-- replace maybe by JwPLAYER -->
@@ -145,7 +145,7 @@ else
     controls
 
 class="video-js vjs-default-skin videoread" width="520" 
- data-setup='{  "playbackRates": [1, 1.5, 2] }'
+ data-setup='{  "playbackRates": [0.5,1, 1.5, 2] }'
     >
   <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
 

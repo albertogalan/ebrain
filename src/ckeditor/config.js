@@ -29,7 +29,7 @@ CKEDITOR.editorConfig = function(config) {
     // The default plugins included in the basic setup define some buttons that
     // are not needed in a basic editor. They are removed here.
     config.removeButtons = 'Copy,Paste,Undo,Redo,Anchor,Underline,Strike,Subscript,Superscript';
-    config.extraPlugins = 'inlinesave,sourcearea,sourcedialog,video,inserthtml4x,image,format,wysiwygarea,balloonpanel,a11ychecker,html5audio,table,lineutils,widget,codesnippet,find,templates,mathjax,clipboard';
+    config.extraPlugins = 'inlinesave,sourcearea,sourcedialog,video,inserthtml,image,format,wysiwygarea,balloonpanel,a11ychecker,html5audio,table,lineutils,widget,codesnippet,find,templates,mathjax,clipboard';
     // config.uploadUrl = '/uploader/upload.php';
     // removed plugins easykeymap,
     // Dialog windows are also simplified.
