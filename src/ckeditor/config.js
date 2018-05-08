@@ -55,15 +55,70 @@ CKEDITOR.editorConfig = function(config) {
     config.timestamp = 'ABCE';
     config.disallowedContent = 'strong em i cite';
     embeded = 'iframe[width,height,src,frameborder,allow,allowfullscreen,scrolling];'
-    // config.allowedContent = embeded     + 'script[type,src];table;td;tr;del[datetime, title];span(!math-tex);a[!href];h1; h2; h3; h4; h5; p(content); br;code {*};pre;section; div[data-tiny](ieconomics_share,path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content);label[for];ul;ol;li;img[!src]{width,height,alt};audio[!src,controls];video[controls,onclick,width,id];source[!src,type];mark;details;summary;em';
-    // https://docs.ckeditor.com/ckeditor4/latest/guide/dev_allowed_content_rules.html
-    config.allowedContent = embeded + 'script[type,src];table; \
+    config.allowedContent = embeded     + 'script[type,src];table;td;tr;del[datetime, title];span(!math-tex);a[!href];h1; h2; h3; h4; h5; p(content); br;code {*};pre;section; div[data-tiny](ieconomics_share,path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content);label[for];ul;ol;li;img[!src]{width,height,alt};audio[!src,controls];video[controls,onclick,width,id];source[!src,type];mark;details;summary;em';
+    https://docs.ckeditor.com/ckeditor4/latest/guide/dev_allowed_content_rules.html
+    config.allowedContent = embeded + ' \
+    script[type,src];table; \
+    strong; \
     td[rowspan,colspan,width];tr;th; \
-    del[datetime, title];span[*](math-tex,original,translate,cost,information);a[!href];h1; h2; h3; h4; h5; \
+    del[datetime, title]; \
+    span[*](math-tex,original,translate,cost,information);a[!href];h1; h2; h3; h4; h5; \
     b; \
     a[id]; br;code {*};pre;section; \
-    p div (original,translate,videolink,jieba,ieconomics_share,path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content,middle);\
+    p div [value] (original,translate,videolink,jieba,ieconomics_share,path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content,middle);\
     label[for];ul;ol;li;img[!src]{width,height,alt};audio[!src,controls];video[*]{*};source[*]{*};mark;details;summary;em';
+
+// PENDENT TO DO DOOOOOOO
+    // config.allowedContent = {
+    //     'iframe': {
+
+    //         attributes: ['width', 'height', 'src', 'frameborder', 'allow', 'allowfullscreen', 'scrolling']
+    //     },
+
+    //     'script': {
+    //         attributes: ['type', 'src']
+    //     },
+    //     table: true,
+    //     strong: true,
+    //     td: {
+    //         attributes: ['rowspan', 'colspan', 'width']
+    //     },
+    //     tr: true,
+    //     th: true,
+    //     del: {
+    //         attributes: ['datetime', 'title']
+    //     },
+    //     span: {
+    //         classes: ['math-tex', 'original', 'translate', 'cost', 'information'],
+    //     },
+    //             span: {
+    //         styles: 'background'
+    //     },
+    //     a: {
+    //         attributes: '!href'
+    //     },
+    //     h1: true,
+    //     h2: true,
+    //     h3: true,
+    //     h4: true,
+    //     h5: true,
+    //     b: true,
+    //     a:{
+    //         attributes:'id'
+    //     },
+    //     br:true,
+    //     code:true, **
+    //     pre:true,
+    //     section:true,
+    //     'p div':   { attributes: 'value'},
+    //     'p div':   {classes:'original','translate','videolink','jieba','ieconomics_share','path','savetofile','chinese','marco','marco_desc','img_desc','section_desc','tabs','tab','content','middle'},
+
+
+    // }
+
+
+
+
 
     // chinese : chinese text classes
     // savetofile : content to save where path classes dictate
