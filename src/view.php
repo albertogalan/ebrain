@@ -49,7 +49,7 @@ session_start([
 
 include ('inc/function_read.php');
 $path="/data//";
-$datafile="data/files2.json";
+$datafile="data/files.json";
 generate_content($path,$datafile);
 
 ?>
