@@ -219,7 +219,7 @@ translate_select()
                 console.log('not change')
 
             } else {
-                var aaa = 'http://i487.lxc/' + $(this).attr('src');
+                var aaa = document.location.origin + $(this).attr('src');
                 $(this).attr('src', aaa);
                 console.log($(this).attr('src'))
             }
@@ -231,12 +231,12 @@ translate_select()
 
 
         console.log('clicked sharelink ')
-        console.log("http://i487.lxc/ebrain?url=" + $('#tittle').val())
+        console.log(document.location.origin +"/ebrain?url=" + $('#tittle').val())
 
         $.getJSON('ebrain?url=' + $('#tittle').val(),
             function(data) {
 
-                $('#sharelink').attr('href', 'http://i487.lxc/view.php?url=' + data.hash)
+                $('#sharelink').attr('href', document.location.origin +'/view.php?url=' + data.hash)
 
             })
 
@@ -730,16 +730,13 @@ function doSomething() {
     })
 }
 
-
-
-
 function fanyi(text, lang, langto) {
     return new Promise((resolve, reject) => {
         console.log(`It is done. ${text} ${lang} ${langto}`);
         // Succeed half of the time.
         // lang = 'zh'
         // langto = 'en'
-        var url = 'http://i487.lxc/fanyi'
+        var url = document.location.origin +'/fanyi'
         var headers = {
             "Content-Type": "application/json"
         };
