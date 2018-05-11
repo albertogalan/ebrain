@@ -30,8 +30,9 @@
 </div>
 
 <body>
+<div id="commands" class="col2">
 
-	<div id=fanyi55 class="fanyi">
+	<div id="fanyi55" class="fanyi">
 	Transalation content
 
 	</div>
@@ -43,6 +44,7 @@
 ?>
 
 
+  </div>
   </div>
 </div>
 

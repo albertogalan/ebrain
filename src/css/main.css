@@ -2,8 +2,8 @@
     #scrollArea {
 
         padding-left: 1%;
-        width: 98%;
-        /*! padding: 1%; */
+        width: 96%;
+        padding: 1%;
         max-height: 100vh;
         overflow: auto;
     }
@@ -50,7 +50,7 @@
         border-width: 0px ;
         padding-left: 1%;
         overflow: auto;
-        width: 98%;
+        width: 97%;
         float: left;
         font-size: smaller;
         padding-bottom: 31px;
@@ -126,9 +126,10 @@
     .first_editor {
 
         resize: both;
-        overflow: auto;
+        /*! overflow: auto; */
         word-wrap: break-word;
         float: left;
+        width: 99%;
     }
 
     .savetofile {

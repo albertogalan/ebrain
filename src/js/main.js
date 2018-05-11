@@ -141,6 +141,8 @@ function translate_select(){
                 console.log(text)
         lang = 'zh'
         langto = 'en'
+            console.log('doing translation')
+
         fanyi(text, lang, langto).then(function(aa) {
             console.log(aa.src)
             aa.dst = aa.pinyin + "<br>" + aa.translate + aa.handi
@@ -149,6 +151,7 @@ function translate_select(){
         });
 
 }
+
 
     $(".jieba").dblclick(function() {
   
