@@ -1,0 +1,151 @@
+
+    #scrollArea {
+
+        padding-left: 1%;
+        width: 98%;
+        /*! padding: 1%; */
+        max-height: 100vh;
+        overflow: auto;
+    }
+
+    .clusterize-extra-row {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    .clusterize-extra-row.clusterize-keep-parity {
+        display: none;
+    }
+
+    .clusterize-content {
+        outline: 0;
+        counter-reset: clusterize-counter;
+        padding-top: 0%;
+    }
+    .clusterize-no-data td {
+        text-align: center;
+    }
+
+    .clusterize-scroll {
+        overflow: auto;
+        background-color: antiquewhite;
+    }
+
+    .buttonpanel {
+
+        font-size: 12px;
+        background-color: lightyellow;
+        padding: 5px;
+    }
+
+
+    .audiofanyi {
+        /*     position:fixed */
+    }
+
+    .fanyi {
+        /*! border: 2px dotted; */
+        z-index: 9999999;
+        color: #FFF;
+        background-color: rgba(167, 80, 80, 0.9);
+        border-width: 0px ;
+        padding-left: 1%;
+        overflow: auto;
+        width: 98%;
+        float: left;
+        font-size: smaller;
+        padding-bottom: 31px;
+    }
+
+    .col1 {
+        width: 170px;
+        height: auto;
+        float: left;
+    }
+
+    .col3 {
+        margin-left: 54%;
+        float: left;
+        position: absolute;
+        top: 10px;
+    }
+
+    #showArea {
+        top: 10;
+    }
+
+    .savetofile {
+        color: darkblue;
+        z-index: 10;
+    }
+
+
+    @media only screen and (max-width: 600px) {
+        .col2 {
+            background-color: lightblue;
+            margin-left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+
+        .fanyi {
+            height: 25%;
+            position: fixed;
+        }
+        .buttonpanel{
+
+            display: none;
+        }
+    }
+
+    @media only screen and (min-width: 600px) and (max-width: 900px) {
+        .col2 {
+            width: 70%;
+            padding-left: 30px;
+            margin-left: 10%;
+        }
+    }
+
+    @media only screen and (min-width: 900px) {
+
+        .col2 {
+            width: 42%;
+            padding-left: 30px;
+            margin-left: 10%;
+        }
+
+        .fanyi {
+            height: 25%;
+            /*! max-height: 140px; */
+        }
+    }
+
+
+
+    .test,
+    .first_editor {
+
+        resize: both;
+        overflow: auto;
+        word-wrap: break-word;
+        float: left;
+    }
+
+    .savetofile {
+        z-index: 10;
+    }
+
+
+    #textinfo {
+
+        color: blue;
+
+        font-size: 2.5em;
+        position: fixed;
+    }
+
+    #hash {
+
+        position: relative;
+    }
+

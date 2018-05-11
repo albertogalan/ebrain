@@ -55,14 +55,14 @@ CKEDITOR.editorConfig = function(config) {
     config.timestamp = 'ABCE';
     config.disallowedContent = 'strong em i cite';
     embeded = 'iframe[width,height,src,frameborder,allow,allowfullscreen,scrolling];'
-    config.allowedContent = embeded     + 'script[type,src];table;td;tr;del[datetime, title];span(!math-tex);a[!href];h1; h2; h3; h4; h5; p(content); br;code {*};pre;section; div[data-tiny](ieconomics_share,path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content);label[for];ul;ol;li;img[!src]{width,height,alt};audio[!src,controls];video[controls,onclick,width,id];source[!src,type];mark;details;summary;em';
+    // config.allowedContent = embeded     + 'script[type,src];table;td;tr;del[datetime, title];span(!math-tex);a[!href];h1; h2; h3; h4; h5; p(content); br;code {*};pre;section; div[data-tiny](ieconomics_share,path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content);label[for];ul;ol;li;img[!src]{width,height,alt};audio[!src,controls];video[controls,onclick,width,id];source[!src,type];mark;details;summary;em';
     https://docs.ckeditor.com/ckeditor4/latest/guide/dev_allowed_content_rules.html
     config.allowedContent = embeded + ' \
     script[type,src];table; \
     strong; \
     td[rowspan,colspan,width];tr;th; \
     del[datetime, title]; \
-    span[*](math-tex,original,translate,cost,information);a[!href];h1; h2; h3; h4; h5; \
+    span[*](math-tex,original,translate,cost,information,jieba);a[!href];h1; h2; h3; h4; h5; \
     b; \
     a[id]; br;code {*};pre;section; \
     p div [value] (original,translate,videolink,jieba,ieconomics_share,path,savetofile,chinese,marco,marco_desc,img_desc,section_desc,tabs,tab,content,middle);\

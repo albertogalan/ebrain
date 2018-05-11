@@ -12,13 +12,15 @@
   <script src="/ckeditor/ckeditor.js"></script>
   <script src="/js/jquery-3.1.0.min.js"></script>
 		<script src="/js/dist/bundle.js"></script>
-		<script src="/js/money.min.js"></script>
+		<!-- <script src="/js/money.min.js"></script> -->
  <!-- Autocomplete script -->
-	<script src="/js/jquery-1.11.2.min.js"></script>
+	<!-- <script src="/js/jquery-1.11.2.min.js"></script> -->
 	<script src="/js/jquery.easy-autocomplete.min.js" type="text/javascript" ></script>
 
   <!-- <script type="text/javascript" src="js/MathJax-master/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 
+  <link href="/css/main.css" rel="stylesheet" type="text/css">
+	<link href="/css/readerstyle.css" rel="stylesheet" type="text/css">
 	<link href="/css/style.css" rel="stylesheet" type="text/css">
 	<link href="/css/easy-autocomplete.min.css" rel="stylesheet" type="text/css">
   <!-- pre code theme -->
@@ -62,6 +64,15 @@ generate_content($path,$datafile);
   	<button id="updatecost" class="panel"  name="button">update cost</button>
   	<button id="sharelink" class="panel"  name="button">share link</button>
 	<br/><br/><br/><br/>
+
+
+<div id="inputArea" class="col2">
+    	
+
+    <div id="scrollArea" class="clusterize-scroll ">
+        <div id="contentArea" class="clusterize-content">
+
+
 <?php
 if (true){
 // if ($_SESSION["login2"]){
@@ -79,7 +90,7 @@ else
 
  ?>
 
-
+</div></div></div>
 
 </body>
 

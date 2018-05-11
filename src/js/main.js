@@ -64,7 +64,7 @@ $(document).ready(function() {
 
 
 
-        var url = getParameterByName('url');
+    var url = getParameterByName('url');
     if (url) {
 
         // console.log(url);
@@ -99,45 +99,96 @@ $(document).ready(function() {
     // });
 
 
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // Do nothing if the event was already processed
+  }
 
-   $(".jieba").dblclick(function() {
+  switch (event.key) {
+    case "ArrowDown":
+      // Do something for "down arrow" key press.
+      break;
+    case "ArrowUp":
+      // Do something for "up arrow" key press.
+      break;
+    case "ArrowLeft":
+      // Do something for "left arrow" key press.
+      break;
+    case "ArrowRight":
+      // Do something for "right arrow" key press.
+      break;
+    case "Enter":
+      // Do something for "enter" or "return" key press.
+      break;
+    case "Escape":
+      // Do something for "esc" key press.
+      console.log('press escape')
+             translate_select();
+      break;
+    default:
+      return; // Quit when this doesn't handle the key event.
+  }
 
-text=$(this).text()
-
-lang='zh'
-langto='en'
- fanyi(text, lang, langto).then(function(aa) {
-                        console.log(aa.src)
-                           aa.dst=aa.pinyin +"<br>"+ aa.translate +aa.handi
-                           var trad = aa.src + ': </br> ' + aa.dst+ aa.audio;
-                           
-                           $('#fanyi55').html(trad)
-                    })
+  // Cancel the default action to avoid it being handled twice
+  event.preventDefault();
+}, true);
 
 
-    });
+function translate_select(){
 
 
-    $("button#autotrans").click(function() {
-        // $("span[lang='zh-cn']").each(function(i, v) {
+        text = window.getSelection().toString()
+                console.log(text)
+        lang = 'zh'
+        langto = 'en'
+        fanyi(text, lang, langto).then(function(aa) {
+            console.log(aa.src)
+            aa.dst = aa.pinyin + "<br>" + aa.translate + aa.handi
+            var trad = '<div class="audiofanyi">' + aa.audio + '</div>' +aa.src + ': </br> ' + aa.dst ;
+            $('#fanyi55').html(trad)
+        });
 
-            $("span[lang='zh-cn']").css('color', 'red')
-            
-            let lang = 'zh'
-            let langto = 'en'
-            let bb = $("span[lang='zh-cn']:eq(1)").text()  
-            console.log(`to translate: ${bb}`)
-            fanyi(bb, 'zh', 'en').then(function(aa) {
-                let translation = "<span class='original' lang='" + lang + "' data-pseudo-content='" + aa.src + "' >&nbsp;</span><span class='translate'  lang='" + langto + "' >" + aa.translate + "</span>"
-                console.log(aa.i)
-                $("span[lang='zh-cn']:eq(1)").html(translation)
-                $("span[lang='zh-cn']:eq(1)").attr('lang','')
-            })
+}
+
+    $(".jieba").dblclick(function() {
+  
+
+translate_select()
+
 
     })
 
 
 
+    $("button#puttogether").click(function() {
+        sel = editor.extractSelectedHtml()
+        aa = sel.getHtml().replace(/<br>/gm, '')
+        editor.insertHtml(aa);
+    })
+
+    $("button#autotrans").click(function() {
+        $("span[lang='zh-cn']").css('color', 'red')
+        let lang = 'zh'
+        let langto = 'en'
+        let bb = $("span[lang='zh-cn']:eq(1)").text()
+        console.log(`to translate: ${bb}`)
+        fanyi(bb, 'zh', 'en').then(function(aa) {
+            let translation = "<span class='original' lang='" + lang + "' data-pseudo-content='" + aa.src + "' >&nbsp;</span><span class='translate'  lang='" + langto + "' >" + aa.translate + "</span>"
+            console.log(aa.i)
+            $("span[lang='zh-cn']:eq(1)").html(translation)
+            $("span[lang='zh-cn']:eq(1)").attr('lang', '')
+        })
+
+    })
+
+
+
+    $("button#position").click(function() {
+        console.log('clicked save position')
+        $("#scrollArea").scrollTop()
+
+
+    });
 
     $("button#trans").click(function() {
         console.log('clicked translate')
@@ -210,7 +261,7 @@ langto='en'
                         console.log("converting CNY into EUR" + fx(1).from("CNY").to("EUR"));
                         $(this).text(total)
                     });
-  
+
                 } else {
                     // If not, apply  to fxSetup global:
                     var fxSetup = {
@@ -368,11 +419,11 @@ langto='en'
 
 
 
+
             case 5570638: // Ctrl Alt N
                 // tag="<b></b>";
                 tag = "<em></em>"; //emphasis
                 break;
-
 
             case 5570637: // Ctrl Alt M
                 tag = "<mark></mark>";
@@ -588,6 +639,14 @@ langto='en'
         var element = evt.data.element;
         //console.log('doubleclick');
         classe = element.getAttribute("class");
+        console.log('doubleclick in class ' + classe)
+        if (classe == 'jieba'){
+
+           translate_select();
+
+
+
+        }
         if (classe == 'videolink') {
             loadVideo(element);
         }
@@ -601,7 +660,6 @@ langto='en'
             url = element.getAttribute("href");
             openInNewTab(url);
             // console.log ('click link'+ url);
-
 
         }
 
@@ -648,10 +706,10 @@ function hashCode(str) {
 }
 
 
-function convertCoin(value,coin, tocoin) {
+function convertCoin(value, coin, tocoin) {
     console.log('convertCoin')
 
-    let aa="<span data-cost='" + value + "' data-coin='" + coin + "' data-coin-convert='" + tocoin + "' class='cost'>To convert " + coin + " into " + tocoin + " " + value + "</span>"
+    let aa = "<span data-cost='" + value + "' data-coin='" + coin + "' data-coin-convert='" + tocoin + "' class='cost'>To convert " + coin + " into " + tocoin + " " + value + "</span>"
     // $('td p:has(span.cost)').addClass('middle');
     return aa
 }
@@ -686,7 +744,7 @@ function fanyi(text, lang, langto) {
             "from": lang,
             "to": langto,
             "src": text,
-            "i":'1'
+            "i": '1'
         };
         console.log('this is the text to translate ' + text)
 
@@ -710,8 +768,8 @@ function fanyi(text, lang, langto) {
 
 function message(str) {
 
-    $("#saving").html(str).css({ opacity: 0.99 });
-    $("#saving").animate({ opacity: 0 }, 1200);
+    $("#textinfo").html(str).css({ opacity: 0.99 });
+    $("#textinfo").animate({ opacity: 0 }, 1200);
 }
 
 function basename(path, suffix) {
@@ -886,7 +944,7 @@ function rename() {
             $("#tittle").val($("#rename").val());
         })
         .done(function() {
-            $("#saving").html("file renamed to " + $("#rename").val());
+            message("file renamed to " + $("#rename").val());
         })
         .fail(function() {
             alert("error");

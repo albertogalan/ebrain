@@ -83,53 +83,20 @@ section + photo
   color: #777;
 }*/
 
-	.path {
+/* 	.path {
 
 	    color: blue;
 	    font-size: 3vh;
 	    font-style: italic;
 	    font-family: abel-regular;
-	}
+	} */
 
-	.savetofile {
-	    color: darkblue;
-	    z-index: 10;
-	}
+	
 	/*https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y*/
 
-	#tittle,
-	#rename {
-
-	    font-size: 4vh;
-	    float: left;
-	}
-
-
-	#hidden {
+/* 	#hidden {
 	    /*display: none;*/
-	}
-
-	#hash {
-
-	    font-size: 1.5vh;
-	    font-weight: 400;
-	    position: absolute;
-	    top: 10px;
-	    right: 10px;
-	    display: none;
-	}
-
-	#saving {
-
-	    font-size: 2.5vh;
-	    font-weight: 400;
-	    position: fixed;
-	    top: 10px;
-	    right: 5%;
-	    color: blue;
-	    background-color: white;
-	    z-index: 19;
-	}
+	/*} */
 
 
 
@@ -141,8 +108,6 @@ section + photo
 	    width: 90%;
 	    padding-top: 0.1em;
 	    padding-bottom: 0.1em;
-
-
 	    overflow: hidden;
 	}
 
@@ -233,9 +198,6 @@ td p {
 	    margin: 0em;
 	}
 
-
-
-
 .middle {
 	 text-align:center; 
 
@@ -284,33 +246,23 @@ td p {
 
 
 
-	.test,
-	.first_editor {
 
-	    /*font-family: CMS;*/
-	    font-weight: 300;
-	    text-color: #444;
-	    /*width: 95%;*/
-	    /*height : 400px !important;*/
-	    /*https://developer.mozilla.org/en-US/docs/Web/CSS/length*/
-	    /*https://www.w3.org/TR/css3-values/#viewport-relative-lengths*/
-	    overflow-y: auto;
-	    position: relative;
-	    max-height: 75vh;
-	    /*background: #f2bdbd;*/
-	    /*font-size: 13px;*/
-	    line-height: 14px;
-	    margin-bottom: 100px;
-	    padding-bottom: 100px;
-	    resize: both;
-	    /*resize: horizontal;*/
-	    overflow: auto;
-	    word-wrap: break-word;
-	    /*allow break long words*/
-	    max-width: 1700px;
-	    /* editor max width */
-	    width: 780px;
+
+    @media only screen and (max-width: 600px) {
+.jieba{
+	    font-size: 1em;
+	    line-height: 1.4em;
 	}
+
+}
+
+    @media only screen and (min-width: 600px) {
+.jieba{
+	    font-size: 1.2em;
+	    line-height: 1.2em;
+	}
+
+}
 
 	.jieba {
 
@@ -319,10 +271,7 @@ td p {
 	    align-items: left;
 	    color: black;
 	    /*font-family: ukaicn ;*/
-	    /*font-family: wenquanyi ;*/
-	    font-size: 1.4em;
-	    line-height: 1.6em;
-	}
+	    /*font-family: wenquanyi ;*/}
 
 
 	.jieba.active {
@@ -428,13 +377,13 @@ td p {
 	}
 
 
-	.first_editor,
+/*	.first_editor,
 	.first_reader {
 	    position: relative;
 	    float: left;
-	    margin-left: 2.0em;
+	    margin-left: 1.0em;
 	}
-
+*/
 
 	.videolink {
 
@@ -447,8 +396,8 @@ td p {
 	}
 	/*p  {*/
 
-	.first_editor .savetofile,
-	.first_editor,
+	/*.first_editor .savetofile,
+	.first_editor,*/
 	.first_editor li {
 	    /*****  this is for change the font size of the normal text **/
 	    /*font-size: 1.9vh;*/
@@ -457,8 +406,8 @@ td p {
 	    font-size: 1em;
 	    /*line-height: 2.4vh;*/
 	    line-height: 1.2em;
-	    margin: 0;
-	    padding: 0;
+	    /*! margin: 0; */
+	    /*! padding: 0; */
 	    word-wrap: break-word;
 	    /*allow break long words*/
 	    position: relative

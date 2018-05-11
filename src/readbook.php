@@ -4,8 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="robots" content="noindex, nofollow">
-<link href="/css/style.css" rel="stylesheet" type="text/css">
-<link href="/css/clusterize.css" rel="stylesheet" type="text/css">
+  
 <!-- <script src="/js/readbook.js"></script> -->
 <!-- <script src="/js/require.js"></script> -->
 <!-- <script data-main="js/readbook" src="/js/require.js"></script> -->
@@ -13,13 +12,16 @@
 <!-- <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script> -->
   <!-- <script src="/js/jquery-3.1.0.min.js"></script> -->
 
+  <link href="/css/main.css" rel="stylesheet" type="text/css">
+  <link href="/css/readerstyle.css" rel="stylesheet" type="text/css">
   <script src="/js/jquery-3.1.0.min.js"></script>
-<script src="/js/bundle.js"></script>
+<script src="/js/dist/bundle.js"></script>
 
 </head>
 
-<div>
-  <button id="prev">Previous</button>
+<div id="commands" class="col1">
+  <button id="prev">Previous</button>  
+  <button id="position">Save position</button>
   <button id="next">Next</button>
   <button id="page_go">Go to</button>
   <input id="page_input" value="1"></input> 
@@ -30,7 +32,7 @@
 <body>
 
 	<div id=fanyi55 class="fanyi">
-		dfd
+	Transalation content
 
 	</div>
 <div id="scrollArea" class="clusterize-scroll">
