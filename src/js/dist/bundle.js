@@ -65,6 +65,30 @@ $(document).ready(function() {
 
 
 
+    $('.jieba').on('click touchstart', function() {
+       // console.log('hello')
+
+         
+    // text="展示的时候"
+    text=$(this).text()
+
+           console.log(text)
+        lang = 'zh'
+        langto = 'en'
+            console.log('doing translation')
+
+        fanyi(text, lang, langto).then(function(aa) {
+            console.log(aa.src)
+            aa.dst = aa.pinyin + "<br>" + aa.translate + aa.handi
+            var trad = '<div class="audiofanyi">' + aa.audio + '</div>' +aa.src + ': </br> ' + aa.dst ;
+            $('#fanyi55').html(trad)
+        });
+
+    }); 
+
+
+
+
     var url = getParameterByName('url');
     if (url) {
 
@@ -98,6 +122,9 @@ $(document).ready(function() {
     // $( "h1" ).click(function() {
     //   $(this).next( "h1" ).toggle();
     // });
+
+
+
 
 
 window.addEventListener("keydown", function (event) {
@@ -161,6 +188,11 @@ translate_select()
 
 
     })
+
+
+
+
+
 
 
 
