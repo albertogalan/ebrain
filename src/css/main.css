@@ -125,9 +125,9 @@
         /*! overflow: auto; */
         word-wrap: break-word;
         float: left;
-        width: 100%;
-        position:fixed;
-        height: 100%;
+        /*! width: 100%; */
+        /*! position:fixed; */
+        min-height: 200px;
 
     }
 
