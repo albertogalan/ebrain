@@ -2,10 +2,11 @@
     #scrollArea {
 
         padding-left: 1%;
-        width: 96%;
+        width: 97%;
         padding: 1%;
         max-height: 100vh;
         overflow: auto;
+        position: relative;
     }
 
     .clusterize-extra-row {
@@ -37,22 +38,21 @@
         padding: 5px;
     }
 
-
     .audiofanyi {
         /*     position:fixed */
     }
 
     .fanyi {
         /*! border: 2px dotted; */
-        z-index: 9999999;
+        z-index: 999999;
         color: #FFF;
-        background-color: rgba(167, 80, 80, 0.9);
-        border-width: 0px ;
+        background-color: rgb(160, 109, 168,0.5);
+        /*! border-width: 0px ; */
         padding-left: 1%;
         overflow: auto;
-        width: 97%;
+        width: 100%;
         float: left;
-        font-size: smaller;
+        font-size: medium;
         padding-bottom: 31px;
     }
 
@@ -60,6 +60,7 @@
         width: 170px;
         height: auto;
         float: left;
+   
     }
 
     .col3 {
@@ -89,13 +90,32 @@
 
 
         .fanyi {
-            height: 25%;
+            height: auto;
             position: fixed;
+            top: 0px;
+            min-height: 80px;
         }
         .buttonpanel{
 
             display: none;
         }
+             
+.buttonpanel {
+    
+ display:none ;
+    
+}
+    
+          .col1 {
+        width: 100%;
+        height: 37%;
+        float: left;
+        z-index: 0;
+        position: fixed;
+        background-color: #9e9eb1;
+        width: 100%;
+    }
+        
     }
 
     @media only screen and (min-width: 600px) and (max-width: 900px) {
@@ -115,8 +135,11 @@
         }
 
         .fanyi {
-            height: 25%;
+            height: 20%;
             /*! max-height: 140px; */
+            position: fixed;
+            width: 40%;
+            display: none;
         }
     }
 
@@ -150,3 +173,15 @@
         position: relative;
     }
 
+#video {
+
+    position: relative;
+    float:left;
+    display:none;
+
+    padding-top: 25px;
+}
+
+
+.pdfobject-container { height: 500px;}
+.pdfobject { border: 1px solid #666; }

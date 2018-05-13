@@ -1,37 +1,6 @@
-//
-// function saveintobrowser(filename,html){
-//
-// // filename=$( "#tittle" ).val()
-// // html=evt.editor.getData()
-// // lack of sync into the server
-//   var db = new Dexie("m13");
-//   db.version(1).stores({
-//     files: "filename,html"
-//   });
-//
-//   db.open().catch(function (e) {
-//      alert ("Open failed: " + e);});
-//
-//
-//   db.transaction("rw", db.files, function () {
-//       // Update the register if exists if not add
-//      db.files.where("filename").equals(filename).modify({html: html}).then(function(updated)
-//      {
-//        if (updated)
-//            console.log ("pedro found and update");
-//        else
-//        {
-//        console.log ("pedro not found ");
-//        db.files.add({filename: $( "#tittle" ).val(), html:  evt.editor.getData()});} });   });
-//
-// };
-
-
 var ctrlI = false;
 var fx = require('money');
-// require('ckeditor');
-// CKEDITOR.replace( 'editor' );
-
+// var Speech = require('speak-tts')
 
 // Add an event listener
 document.addEventListener("name-of-event", function(e) {
@@ -39,53 +8,26 @@ document.addEventListener("name-of-event", function(e) {
 });
 
 
-// $(".videolink").click(function(){
-
-//     var src = $(this).attr("value");
-//    // alert(src);
-// // console.log(evt);
-// // console.log($(this));
-// // console.log("clicked videolink in ckeditor");
-// loadVideo(src);
-
-
-// })
-
-// function loadVideo2(){
-
-//     console.log('clicked loadVideo2');
-// }
-
 
 $(document).ready(function() {
 
     // var b1 = document.getElementById("MW");
     // b1.tabIndex = 5; //change the default tabindex
 
+    require('ckeditor');
+    // CKEDITOR.replace( 'editor' );
 
+    CKEDITOR.instances['introduction'].destroy();
+    var editor = CKEDITOR.inline("introduction");
 
     $('.jieba').on('click touchstart', function() {
-       // console.log('hello')
-
-         
-    // text="展示的时候"
-    text=$(this).text()
-
-           console.log(text)
+        text = $(this).text()
+        console.log(text)
         lang = 'zh'
         langto = 'en'
-            console.log('doing translation')
-
-        fanyi(text, lang, langto).then(function(aa) {
-            console.log(aa.src)
-            aa.dst = aa.pinyin + "<br>" + aa.translate + aa.handi
-            var trad = '<div class="audiofanyi">' + aa.audio + '</div>' +aa.src + ': </br> ' + aa.dst ;
-            $('#fanyi55').html(trad)
-        });
-
-    }); 
-
-
+        console.log('doing translation')
+        translate_select(text)
+    });
 
 
     var url = getParameterByName('url');
@@ -105,101 +47,199 @@ $(document).ready(function() {
 
     // loadautosearch("/resources/files2.json");
 
+    window.addEventListener("keydown", function(event) {
+        if (event.defaultPrevented) {
+            return; // Do nothing if the event was already processed
+        }
 
-    // $( ".first_editor h3" ).click(function() {
-    //   alert('clicked');
-    //   $(this).nextUntil( ".first_editor h3, .first_editor h2" ).toggle();
-    // });
-    // $( ".first_editor h4" ).click(function() {
-    //   $(this).nextUntil( ".first_editor h4, .first_editor h3 " ).toggle();
-    // });
-    //
-    // $( "h2" ).click(function() {
-    //   $(this).next( "h2, h1" ).toggle();
-    // });
-    //
-    // $( "h1" ).click(function() {
-    //   $(this).next( "h1" ).toggle();
-    // });
+        switch (event.key) {
 
+            case "Escape":
+                // Do something for "esc" key press.
+                console.log('press escape')
+                sel = window.getSelection();
+                console.log('sel ' + sel)
+                translate_select(sel);
+                break;
+            default:
+                return; // Quit when this doesn't handle the key event.
+        }
 
-
-
-
-window.addEventListener("keydown", function (event) {
-  if (event.defaultPrevented) {
-    return; // Do nothing if the event was already processed
-  }
-
-  switch (event.key) {
-    case "ArrowDown":
-      // Do something for "down arrow" key press.
-      break;
-    case "ArrowUp":
-      // Do something for "up arrow" key press.
-      break;
-    case "ArrowLeft":
-      // Do something for "left arrow" key press.
-      break;
-    case "ArrowRight":
-      // Do something for "right arrow" key press.
-      break;
-    case "Enter":
-      // Do something for "enter" or "return" key press.
-      break;
-    case "Escape":
-      // Do something for "esc" key press.
-      console.log('press escape')
-             translate_select();
-      break;
-    default:
-      return; // Quit when this doesn't handle the key event.
-  }
-
-  // Cancel the default action to avoid it being handled twice
-  event.preventDefault();
-}, true);
+        // Cancel the default action to avoid it being handled twice
+        event.preventDefault();
+    }, true);
 
 
-function translate_select(){
 
 
-        text = window.getSelection().toString()
-                console.log(text)
-        lang = 'zh'
-        langto = 'en'
-            console.log('doing translation')
-
-        fanyi(text, lang, langto).then(function(aa) {
-            console.log(aa.src)
-            aa.dst = aa.pinyin + "<br>" + aa.translate + aa.handi
-            var trad = '<div class="audiofanyi">' + aa.audio + '</div>' +aa.src + ': </br> ' + aa.dst ;
-            $('#fanyi55').html(trad)
-        });
-
-}
 
 
-    $(".jieba").dblclick(function() {
-  
 
-translate_select()
+    $("button#testspeech").click(function() {
 
+        //if you use es5
+        // Speech.init({
+        //     'onVoicesLoaded': (data) => { console.log('voices', data.voices) },
+        //     'lang': 'zh-CN', // specify en-US language (no detection applied)
+        //     'volume': 0.5,
+        //     'rate': 0.8,
+        //     'pitch': 0.8,
+        //     'voice': 'Samantha'
+        // })
+        // Speech.speak({
+        //     text: 'Hello, how are you today ?',
+        //     onError: (e) => {console.log('sorry an error occurred.', e)}, // optionnal error callback
+        //     onEnd: () => {console.log('your text has successfully been spoken.')} // optionnal onEnd callback
+        // })
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        function onDeviceReady() {
+
+            window.TTS.speak({
+                text: 'Welcome to the app!',
+                locale: 'en-GB',
+                rate: 0.75
+            }, function() {
+                alert('success');
+            }, function(reason) {
+                alert(reason);
+
+
+            });
+        }
 
     })
 
 
 
+    function translate_select(texto) {
+        $(".fanyi").show()
 
+        console.log(texto)
+        lang = 'zh'
+        langto = 'en'
+        console.log('doing translation ..')
+        fanyi(texto, lang, langto).then(function(aa) {
+            aa.dst = aa.pinyin + "<br>" + aa.translate + aa.handi
+            var trad = aa.src + ': </br> ' + aa.pinyin + '</br>' + aa.translate + '</br> ' + aa.handi;
+            $('#fanyi55').html(trad)
+            $('#audiofanyi').attr('src', aa.audio)
+            $('#audiofanyi').attr('autoply', true)
+        });
+    }
 
-
-
+    $(".jieba").dblclick(function() {
+        // text = window.getSelection().toString()
+        text = $(this).text()
+        console.log(text)
+        // translate_select(text)
+    })
 
     $("button#puttogether").click(function() {
         sel = editor.extractSelectedHtml()
         aa = sel.getHtml().replace(/<br>/gm, '')
         editor.insertHtml(aa);
     })
+
+
+
+  // $('.jieba').on('click touchstart', function() {
+  //       text = $(this).text()
+  //       console.log(text)
+  //       lang = 'zh'
+  //       langto = 'en'
+  //       console.log('doing translation')
+  //       translate_select(text)
+  //   });
+
+
+    $("#commandArea").on('click touchstart', function() {
+ss=600
+        // $(this).css("z-index",200)
+        $(".fanyi").animate({
+            "top": 186
+        }, ss);
+    })
+
+    $(".fanyi").on('click touchstart', function() {
+
+       ss=600
+ 
+        $(".fanyi").animate({
+            "top": 0
+        }, ss, function(){
+
+              
+            $(this).hide(ss/3)
+
+        });
+
+    })
+
+    $("#editmode").click(function() {
+        CKEDITOR.instances['introduction'].destroy();
+        var editor = CKEDITOR.inline("introduction");
+
+        if ($('#editmode').is(':checked')) {
+            $('#introduction').attr('contenteditable', true)
+            editor.readOnly = false
+        } else {
+            $('#introduction').attr('contenteditable', false)
+            editor.readOnly = true
+
+            console.log('read mode')
+        }
+    })
+
+    $("button#jieba3").click(function() {
+        // sel = editor.getSelection().getSelectedText()
+
+        console.log("click in jieba button")
+        console.log(url)
+
+
+        $("div.page:eq(2)  span.line").map(function(val, e) {
+            // console.log($(e).html())
+            let dd = {}
+            dd.data = $(e).html()
+            dd.i = val
+            console.log(val)
+            url = "http://i487.lxc/ebrain/jieba"
+            $.post(url, dd).done(function(resp) {
+                b = $.map(resp, function(n) {
+                    aa = $('<span class="jieba"></span>').text(n)
+                    return aa.prop('outerHTML')
+                })
+                resultado = b.join("")
+                // $("div.page:eq(2)  span.line:eq(" + val + ")").html(resultado)
+                console.log(resultado)
+            });
+
+
+
+        })
+    })
+
+
+    $("button#jieba2").click(function() {
+        sel = editor.getSelection().getSelectedText()
+        url = "http://i487.lxc/ebrain/jieba"
+
+        console.log("click in jieba button")
+        console.log(url)
+        let dd = {}
+        dd.data = sel
+        $.post(url, dd).done(function(resp) {
+            b = $.map(resp, function(n) {
+                aa = $('<span class="jieba"></span>').text(n)
+                return aa.prop('outerHTML')
+            })
+
+            editor.insertHtml(b.join(""))
+        });
+    })
+
+
 
     $("button#autotrans").click(function() {
         $("span[lang='zh-cn']").css('color', 'red')
@@ -263,14 +303,20 @@ translate_select()
 
 
         console.log('clicked sharelink ')
-        console.log(document.location.origin +"/ebrain?url=" + $('#tittle').val())
+        console.log(document.location.origin + "/ebrain?url=" + $('#tittle').val())
 
-        $.getJSON('ebrain?url=' + $('#tittle').val(),
-            function(data) {
+        data = { url: $('#tittle').val() }
+        $.post('ebrain/sharelink', data).done(function(resp) {
 
-                $('#sharelink').attr('href', document.location.origin +'/view.php?url=' + data.hash)
 
-            })
+            $('#sharelink').attr('href', '/view.php?url=' + resp.hash)
+
+        })
+        // $.getJSON(?url=' + ,
+        //     function(data) {
+
+
+        //     })
 
 
     });
@@ -354,10 +400,6 @@ translate_select()
 
 
 
-
-
-    CKEDITOR.instances['introduction'].destroy();
-    var editor = CKEDITOR.inline("introduction");
 
 
 
@@ -661,7 +703,13 @@ translate_select()
 
 
     editor.on('focus', function(evt) {
-        // highlightjsworkers();
+        //         // highlightjsworkers();
+        // console.log('loose focus command Area')
+        // $("#commandArea").css("z-index",0)
+        // $(".fanyi").css("z-index",30)
+
+
+
     });
 
     editor.on('click', function(evt) {
@@ -675,12 +723,10 @@ translate_select()
         //console.log('doubleclick');
         classe = element.getAttribute("class");
         console.log('doubleclick in class ' + classe)
-        if (classe == 'jieba'){
-
-           translate_select();
-
-
-
+        if (classe == 'jieba') {
+            var text = window.getSelection();
+            console.log(text)
+            translate_select(text);
         }
         if (classe == 'videolink') {
             loadVideo(element);
@@ -695,32 +741,20 @@ translate_select()
             url = element.getAttribute("href");
             openInNewTab(url);
             // console.log ('click link'+ url);
-
         }
 
     });
 
-
-
-
     editor.on('blur', function(evt) {
-
         console.log("blurr");
-
         save(evt, "save");
-        // editor.focus();
-
     });
 
-
-    //change event
     editor.on('change', function(evt) {
         // console.log( 'Total bytes: ' + evt.editor.getData().length );
         // console.log('saved'+$( "#tittle" ).val());
         // $.post( "/inc/save.php", { editabledata: evt.editor.getData(), editorID: $( "#tittle" ).val() } );
-
     });
-
 });
 
 
@@ -764,22 +798,13 @@ function doSomething() {
 
 function fanyi(text, lang, langto) {
     return new Promise((resolve, reject) => {
-        console.log(`It is done. ${text} ${lang} ${langto}`);
-        // Succeed half of the time.
-        // lang = 'zh'
-        // langto = 'en'
-        var url = document.location.origin +'/fanyi'
-        var headers = {
-            "Content-Type": "application/json"
-        };
+        var url = document.location.origin + '/fanyi'
         var data = {
             "from": lang,
             "to": langto,
             "src": text,
             "i": '1'
         };
-        console.log('this is the text to translate ' + text)
-
         var encode_params = $.param(data, true)
         var url = url + '?' + encode_params
 
@@ -791,7 +816,10 @@ function fanyi(text, lang, langto) {
 
     })
 
+
 }
+
+
 
 
 
@@ -1040,12 +1068,14 @@ function loadautosearch(source) {
 
 
 
+
 function loadVideo(element) {
 
     console.log('element is videolink');
     console.log(element.getAttribute("value"));
     src = element.getAttribute("value");
     // $('video.videoread source').attr('src', src);
+    $('#video').show();
     $('#my-player_html5_api').attr('src', src);
     $('#my-player_html5_api').load();
     $('#my-player_html5_api').play();

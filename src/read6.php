@@ -5,24 +5,33 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width">
+  
 	<title><?php
     $tittle=$_GET['url'];
 
 	echo "$tittle"; ?></title>
-  <script src="/ckeditor/ckeditor.js"></script>
+<script> var CKEDITOR_BASEPATH = '/js/ckeditor4/'; </script>
+  <script src="/js/ckeditor4/ckeditor.js"></script>
   <script src="/js/jquery-3.1.0.min.js"></script>
-		<!-- <script src="/js/pepe_functions.js"></script> -->
-		<!-- <script src="/js/money.min.js"></script> -->
-	<script src="/js/dist/bundle.js"></script>
+    <!-- <script src="/js/pepe_functions.js"></script> -->
+    <!-- <script src="/js/money.min.js"></script> -->
+  <script src="/js/dist/bundle.js"></script>
 
-	
+  
 <!-- replace maybe by JwPLAYER -->
-	<link href="http://vjs.zencdn.net/6.6.3/video-js.css" rel="stylesheet">
-	<!-- https://highlightjs.org -->
-	<script src="/js/highlight.pack.js"></script>
+  <link href="/css/video-js.css" rel="stylesheet">
+  <script src="/js/video.js"></script>
+
+  <!-- https://highlightjs.org -->
+  <script src="/js/highlight.pack.js"></script>
  <!-- Autocomplete script -->
-	<!-- <script src="/js/jquery-1.11.2.min.js"></script> -->
+  <!-- <script src="/js/jquery-1.11.2.min.js"></script> -->
   <script src="/js/jquery.easy-autocomplete.min.js" type="text/javascript" ></script>
+
+
+  <script src="/js/pdfobject.js"></script>
+
 
   <!-- <script type="text/javascript" src="js/MathJax-master/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 
@@ -98,7 +107,13 @@
     <button id="updatecost" class="buttonpanel"  name="button">update cost</button>
     <button id="sharelink" class="buttonpanel"  name="button">share link</button>
     <button id="MW" class="buttonpanel" name="button" onclick="version()" >MW</button>
-    <button id="puttogether" class="buttonpanel" name="button" " >Put togetherMW</button>
+    <button id="puttogether" class="buttonpanel" name="button"  >Put together</button>
+    <button id="testspeech" class="buttonpanel" name="button" >testspeech</button>
+    <button id="jieba2" class="buttonpanel" name="button" " >Jieba</button>
+    <div class="mobilebuttonpanel">
+    <input type="checkbox" id="editmode" name="interest" value="true" checked>
+    Edit
+</div>
     <select id="lang" name="lang"> <!--Supplement an id here instead of using 'text'-->
       <option value="en">English</option>
       <option value="zh" selected>Chinese</option> 
@@ -114,9 +129,12 @@
   </div>
 
 <div id="inputArea" class="col2">
-    	<div id=fanyi55 class="fanyi">
-  Transalation content
-
+       
+      <div id=fanyiArea class="fanyi">
+  <div class="audiofanyi"> <audio id="audiofanyi" src="" autoplay="" controls="" volume="0.8">This is audio</audio></div>
+ <div id=fanyi55>
+ Transalation content
+</div>
   </div>
 
     <div id="scrollArea" class="clusterize-scroll ">
@@ -131,10 +149,9 @@
 </div>
 
 <div  id="showArea" class="col3">
-  <div id="hash">hash ...</div><div id="textinfo" >Saving....</div>
-
-</div>
-<!--      <video  id="my-player" controls class="video-js vjs-default-skin videoread" width="520" 
+  <div id="hash"></div><div id="textinfo" ></div>
+<div id="video">
+     <video  id="my-player" controls class="video-js vjs-default-skin videoread" width="520" 
              data-setup='{  "playbackRates": [0.5,1, 1.5, 2] }'>
       <source src="/img/file_zy8w7i.mp4" type="video/mp4"></source>
       <p class="vjs-no-js">
@@ -145,15 +162,24 @@
         </a>
       </p>
       </video>
-
-    <audio src="/img/file_RKVjFV.mp3" width="400px" controls="">&nbsp;</audio>
-    <div class="map"><div id="allmap"></div></div>
+<div id="pdfobject">
 </div>
- -->
+
+</div>
+    <!-- <audio src="/img/file_RKVjFV.mp3" width="400px" controls="">&nbsp;</audio> -->
+    <!-- <div class="map"><div id="allmap"></div></div> -->
+</div>
+
+</div>
 
 
 <div id="hidden"></div>
-  <script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
+  <script> 
+    // Turn off automatic editor creation first.
+    // CKEDITOR.disableAutoInline = true;
+    // CKEDITOR.inline( 'introduction' );
+</script>
+
 </body>
 
 </html>
