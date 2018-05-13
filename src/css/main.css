@@ -9,6 +9,7 @@
         position: unset;
     }
 
+
     .clusterize-extra-row {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
@@ -110,12 +111,26 @@
         width: 100%;
         height: 37%;
         float: left;
-        z-index: 0;
+        z-index: 200;
         position: fixed;
         background-color: #9e9eb1;
         width: 100%;
         display: none;
     }
+
+  .test,
+    .first_editor {
+
+        resize: both;
+        /*! overflow: auto; */
+        word-wrap: break-word;
+        float: left;
+        width: 100%;
+        position:fixed;
+        height: 100%;
+
+    }
+
         
     }
 
@@ -142,10 +157,6 @@
             width: 40%;
             display: none;
         }
-    }
-
-
-
     .test,
     .first_editor {
 
@@ -155,6 +166,10 @@
         float: left;
         width: 99%;
     }
+    }
+
+
+
 
     .savetofile {
         z-index: 10;

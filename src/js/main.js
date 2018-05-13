@@ -32,6 +32,54 @@ $(document).ready(function() {
     });
 
 
+
+    $("#menupanel").on('click touchstart', function() {
+
+        $("#commandArea").show()
+
+    })
+
+
+
+    $("#commandArea").on('click touchstart', function() {
+
+        ss = 600
+
+        if ($(window).width() < 600) {
+
+
+            $("#commandArea").hide(ss / 3)
+
+
+        }
+
+    })
+
+    // $("#commandArea").on('click touchstart', function() {
+    //     ss = 600
+    //     // $(this).css("z-index",200)
+    //     $(".fanyi").animate({
+    //         "top": 186
+    //     }, ss);
+    // })
+
+    $(".fanyi").on('click touchstart', function() {
+
+        ss = 600
+
+        $(".fanyi").animate({
+            "top": 0
+        }, ss, function() {
+
+
+            $(this).hide(ss / 3)
+
+        });
+
+    })
+
+
+
     var url = getParameterByName('url');
     if (url) {
 
@@ -154,51 +202,7 @@ $(document).ready(function() {
     //       translate_select(text)
     //   });
 
-    $("#menupanel").on('click touchstart', function() {
 
-        $("#commandArea").show()
-
-    })
-
-
-
-    $("#commandArea").on('click touchstart', function() {
-
-ss = 600
-
-if ( $(window).width() < 600 )
-{
-
-
-        $("#commandArea").hide(ss/3)
-
-    
-}
-
-    })
-
-    // $("#commandArea").on('click touchstart', function() {
-    //     ss = 600
-    //     // $(this).css("z-index",200)
-    //     $(".fanyi").animate({
-    //         "top": 186
-    //     }, ss);
-    // })
-
-    $(".fanyi").on('click touchstart', function() {
-
-        ss = 600
-
-        $(".fanyi").animate({
-            "top": 0
-        }, ss, function() {
-
-
-            $(this).hide(ss / 3)
-
-        });
-
-    })
 
 
 
