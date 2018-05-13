@@ -153,8 +153,38 @@ else {
 
 
 
+$("#small").click (function(){
+
+$("#small").css("background-color","red")
+$("#medium").css("background-color","grey")
+$("#big").css("background-color","grey")
+$(".jieba").css("font-size","medium")
 
 
+})
+
+
+
+$("#medium").click (function(){
+
+$("#small").css("background-color","grey")
+$("#medium").css("background-color","red")
+$("#big").css("background-color","grey")
+$(".jieba").css("font-size","large")
+
+
+})
+
+
+$("#big").click (function(){
+
+$("#small").css("background-color","grey")
+$("#medium").css("background-color","grey")
+$("#big").css("background-color","red")
+$(".jieba").css("font-size","larger")
+
+
+})
 
 
     $("button#testspeech").click(function() {

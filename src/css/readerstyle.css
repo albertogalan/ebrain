@@ -258,7 +258,7 @@ td p {
 
     @media only screen and (min-width: 600px) {
 .jieba{
-	    font-size: 1.2em;
+	    font-size: medium;
 	    line-height: 1.2em;
 	}
 

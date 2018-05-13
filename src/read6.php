@@ -115,6 +115,7 @@
     <input type="checkbox" id="editmode" name="interest" value="true" >
     Edit
 </div>
+<div id="small" class="small">A</div> <div id="medium" class="medium">A</div><div id="big" class="big">A</div>
     <select id="lang" name="lang"> <!--Supplement an id here instead of using 'text'-->
       <option value="en">English</option>
       <option value="zh" selected>Chinese</option> 

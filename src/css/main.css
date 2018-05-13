@@ -122,10 +122,10 @@
     .first_editor {
 
         resize: both;
-        /*! overflow: auto; */
+         overflow: auto;
         word-wrap: break-word;
         float: left;
-        /*! width: 100%; */
+        width: 100%; 
         /*! position:fixed; */
         min-height: 200px;
 
@@ -197,6 +197,25 @@
 
     padding-top: 25px;
 }
+
+#small {
+font-size: small;
+}
+#medium {
+font-size: medium;
+}
+#big {
+ font-size: large;
+}
+
+#small, #medium, #big {
+ height:20px;
+ background-color: grey;
+ margin: 5px;
+ padding-top: 10px;
+    
+}
+
 
 
 .pdfobject-container { height: 500px;}
