@@ -112,7 +112,7 @@
     <button id="testspeech" class="buttonpanel" name="button" >testspeech</button>
     <button id="jieba2" class="buttonpanel" name="button" " >Jieba</button>
     <div class="mobilebuttonpanel">
-    <input type="checkbox" id="editmode" name="interest" value="true" checked>
+    <input type="checkbox" id="editmode" name="interest" value="true" >
     Edit
 </div>
     <select id="lang" name="lang"> <!--Supplement an id here instead of using 'text'-->

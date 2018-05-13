@@ -10,26 +10,57 @@ document.addEventListener("name-of-event", function(e) {
 
 
 
+
+
 $(document).ready(function() {
 
     // var b1 = document.getElementById("MW");
     // b1.tabIndex = 5; //change the default tabindex
 
 
+    function mobile (){
 
+
+   if ($(window).width() < 600) {
+    console.log('this is a mobile device')
+return true;
+   }
+   else
+   {
+    console.log('this is a big screen') 
+    return false;
+   }
+
+    }
+
+ if (mobile()) {
+
+console.log('aa')
+    $('#introduction').attr('contenteditable', false)
+  
     require('ckeditor');
-    // CKEDITOR.replace( 'editor' );
+    CKEDITOR.instances['introduction'].destroy();
 
+ }
+else {
+    
+    $('#introduction').attr('contenteditable', true)
+  
+    require('ckeditor');
     CKEDITOR.instances['introduction'].destroy();
     var editor = CKEDITOR.inline("introduction");
+}
 
     $('.jieba').on('click touchstart', function() {
+         if (mobile()) {
         text = $(this).text()
         console.log(text)
         lang = 'zh'
         langto = 'en'
         console.log('doing translation')
         translate_select(text)
+   
+}
     });
 
 
@@ -181,9 +212,13 @@ $(document).ready(function() {
 
     $(".jieba").dblclick(function() {
         // text = window.getSelection().toString()
+        if (! mobile())
+        {
         text = $(this).text()
         console.log(text)
-        // translate_select(text)
+        translate_select(text)
+            
+        }
     })
 
     $("button#puttogether").click(function() {
