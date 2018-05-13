@@ -6,6 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width">
+
   
 	<title><?php
     $tittle=$_GET['url'];
@@ -129,6 +130,11 @@
   </div>
 
 <div id="inputArea" class="col2">
+
+<div id="menu" > 
+
+<div id="menupanel" class="menu">Panel </div>
+</div>
        
       <div id=fanyiArea class="fanyi">
   <div class="audiofanyi"> <audio id="audiofanyi" src="" autoplay="" controls="" volume="0.8">This is audio</audio></div>

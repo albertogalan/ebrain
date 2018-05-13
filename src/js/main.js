@@ -14,6 +14,8 @@ $(document).ready(function() {
     // var b1 = document.getElementById("MW");
     // b1.tabIndex = 5; //change the default tabindex
 
+
+
     require('ckeditor');
     // CKEDITOR.replace( 'editor' );
 
@@ -143,49 +145,73 @@ $(document).ready(function() {
 
 
 
-  // $('.jieba').on('click touchstart', function() {
-  //       text = $(this).text()
-  //       console.log(text)
-  //       lang = 'zh'
-  //       langto = 'en'
-  //       console.log('doing translation')
-  //       translate_select(text)
-  //   });
+    // $('.jieba').on('click touchstart', function() {
+    //       text = $(this).text()
+    //       console.log(text)
+    //       lang = 'zh'
+    //       langto = 'en'
+    //       console.log('doing translation')
+    //       translate_select(text)
+    //   });
+
+    $("#menupanel").on('click touchstart', function() {
+
+        $("#commandArea").show()
+
+    })
+
 
 
     $("#commandArea").on('click touchstart', function() {
-ss=600
-        // $(this).css("z-index",200)
-        $(".fanyi").animate({
-            "top": 186
-        }, ss);
+
+ss = 600
+
+if ( $(window).width() < 600 )
+{
+
+
+        $("#commandArea").hide(ss/3)
+
+    
+}
+
     })
+
+    // $("#commandArea").on('click touchstart', function() {
+    //     ss = 600
+    //     // $(this).css("z-index",200)
+    //     $(".fanyi").animate({
+    //         "top": 186
+    //     }, ss);
+    // })
 
     $(".fanyi").on('click touchstart', function() {
 
-       ss=600
- 
+        ss = 600
+
         $(".fanyi").animate({
             "top": 0
-        }, ss, function(){
+        }, ss, function() {
 
-              
-            $(this).hide(ss/3)
+
+            $(this).hide(ss / 3)
 
         });
 
     })
 
+
+
     $("#editmode").click(function() {
-        CKEDITOR.instances['introduction'].destroy();
-        var editor = CKEDITOR.inline("introduction");
+        // CKEDITOR.instances['introduction'].destroy();
+        // var editor = CKEDITOR.inline("introduction");
 
         if ($('#editmode').is(':checked')) {
             $('#introduction').attr('contenteditable', true)
-            editor.readOnly = false
+            // editor.readOnly = false
         } else {
             $('#introduction').attr('contenteditable', false)
-            editor.readOnly = true
+            // editor.readOnly = true
 
             console.log('read mode')
         }

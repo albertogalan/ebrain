@@ -6,7 +6,7 @@
         padding: 1%;
         max-height: 100vh;
         overflow: auto;
-        position: relative;
+        position: unset;
     }
 
     .clusterize-extra-row {
@@ -46,7 +46,7 @@
         /*! border: 2px dotted; */
         z-index: 999999;
         color: #FFF;
-        background-color: rgb(160, 109, 168,0.5);
+        background-color: rgb(160, 109, 168);
         /*! border-width: 0px ; */
         padding-left: 1%;
         overflow: auto;
@@ -114,6 +114,7 @@
         position: fixed;
         background-color: #9e9eb1;
         width: 100%;
+        display: none;
     }
         
     }
