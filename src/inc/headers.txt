@@ -1,8 +1,0 @@
-<head>
-	<meta charset="utf-8">
-	<meta name="robots" content="noindex, nofollow">
-	<title>Inline editing enabled by code</title>
-
-	<link href="/css/style.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="/css/atom-one-light.css">
-</head>
